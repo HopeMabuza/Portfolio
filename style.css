@@ -467,6 +467,13 @@ body {
   margin-bottom: 16px;
 }
 
+.project-tag--team {
+  color: var(--accent);
+  background: rgba(120, 196, 160, 0.1);
+  border-color: rgba(120, 196, 160, 0.25);
+  margin-left: 8px;
+}
+
 .project-title {
   font-size: 1.35rem;
   font-weight: 700;
