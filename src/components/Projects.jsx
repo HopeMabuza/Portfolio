@@ -12,7 +12,7 @@ const projects = [
   {
     num: '002',
     title: 'SecureNFT',
-    desc: 'NFT-gated dApp on Sepolia. ERC1155 soulbound Rose NFTs act as access keys — only holders can enter and mint. Access enforced server-side via Express to prevent frontend bypass.',
+    desc: 'NFT-gated dApp on Sepolia. ERC1155 soulbound Rose NFTs act as access keys, only holders can enter and mint. Access enforced server-side via Express to prevent frontend bypass.',
     stack: ['Solidity', 'Hardhat', 'ERC-1155', 'Node.js', 'Express', 'React', 'Ethers.js', 'Sepolia'],
     links: [{ label: 'github ↗', href: 'https://github.com/HopeMabuza/SecureNFT' }],
     meta: 'Sepolia · 2026',

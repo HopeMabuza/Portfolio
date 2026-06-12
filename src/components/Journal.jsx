@@ -10,13 +10,13 @@ const entries = [
     date: 'Oct 2025',
     tag: 'DeFi',
     title: 'How GrowFi\'s yield mechanics actually work under the hood',
-    excerpt: 'Walking through the deposit, accrual, and redemption flow — and the edge cases that almost broke it in production.',
+    excerpt: 'Walking through the deposit, accrual, and redemption flow , and the edge cases that almost broke it in production.',
   },
   {
     date: 'Sep 2025',
     tag: 'NFTs',
     title: 'Building server-side NFT gating so the frontend can\'t be bypassed',
-    excerpt: 'Most NFT gates live in the UI. That\'s not a gate — it\'s a suggestion. Here\'s how SecureNFT enforces access on the backend.',
+    excerpt: 'Most NFT gates live in the UI. That\'s not a gate , it\'s a suggestion. Here\'s how SecureNFT enforces access on the backend.',
   },
 ];
 
@@ -29,7 +29,7 @@ export default function Journal() {
           <h2 className="journal-title">The <em>Journal</em></h2>
         </div>
         <div className="journal-subtitle">
-          "I document everything — the breakthroughs, the dead ends, the moments it finally clicks."
+          "I document everything , the breakthroughs, the dead ends, the moments it finally clicks."
         </div>
       </div>
       <div className="journal-grid">
