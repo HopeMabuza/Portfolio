@@ -1,22 +1,23 @@
 const entries = [
   {
-    date: 'Nov 2025',
-    tag: 'Smart Contracts',
-    title: 'Why I spent 3 days debugging a reentrancy vulnerability in my own contract',
-    excerpt: 'I thought I understood reentrancy. I had read the articles, studied the DAO hack, even written a test for it. Then I deployed to testnet and watched my own protocol drain itself in under a minute.',
+    date: 'Week 1',
+    tag: 'Blockchain Basics',
+    title: 'Introduction to Blockchain , History, Architecture, and My First Transaction',
+    excerpt: 'Blockchain wasn\'t just a technical invention, it was built out of frustration with a broken system. This week I went from understanding the theory of decentralization to watching my own wallet address appear on Etherscan , and that\'s when trustless systems finally clicked.',
     featured: true,
+    href: 'https://blockchain-journal-hope-mabuza.gitbook.io/blockchain-journal-hope-mabuza-docs/smart-contracts/week-1-introduction-to-blockchain-history-and-architecture.',
   },
   {
-    date: 'Oct 2025',
-    tag: 'DeFi',
-    title: 'How GrowFi\'s yield mechanics actually work under the hood',
-    excerpt: 'Walking through the deposit, accrual, and redemption flow , and the edge cases that almost broke it in production.',
+    tag: 'Account Abstraction',
+    title: 'ERC-4337, Smart Wallets, and Why Previous EIPs Failed',
+    excerpt: 'EOAs are rigid , lose your key, lose everything. This week I explored how ERC-4337 sidesteps that by building on top of Ethereum instead of changing its core protocol, and built a UUPS upgradable multi-sig escrow that finally made upgradeable contracts click.',
+    href: 'https://blockchain-journal-hope-mabuza.gitbook.io/blockchain-journal-hope-mabuza-docs/smart-contracts/week-7-account-abstraction-erc-4337-and-smart-wallets',
   },
   {
-    date: 'Sep 2025',
-    tag: 'NFTs',
-    title: 'Building server-side NFT gating so the frontend can\'t be bypassed',
-    excerpt: 'Most NFT gates live in the UI. That\'s not a gate , it\'s a suggestion. Here\'s how SecureNFT enforces access on the backend.',
+    tag: 'Backend',
+    title: 'Why We Need Servers in Web3 Apps',
+    excerpt: 'I used to think servers were a web2 thing. Turns out web3 apps are mostly hybrid , the blockchain handles what needs to be trustless, and regular web2 servers handle everything that needs to be fast, flexible, and cheap.',
+    href: 'https://blockchain-journal-hope-mabuza.gitbook.io/blockchain-journal-hope-mabuza-docs/backend/why-we-need-servers-in-web3-apps',
   },
 ];
 
@@ -37,13 +38,12 @@ export default function Journal() {
           <a
             key={e.title}
             className={`journal-entry${e.featured ? ' featured' : ''}`}
-            href="https://blockchain-journal-hope-mabuza.gitbook.io/blockchain-journal-hope-mabuza-docs/"
+            href={e.href || 'https://blockchain-journal-hope-mabuza.gitbook.io/blockchain-journal-hope-mabuza-docs/'}
             target="_blank"
             rel="noopener"
             style={{ textDecoration: 'none' }}
           >
-            <div className="je-date">{e.date}</div>
-            <div className="je-tag">{e.tag}</div>
+<div className="je-tag">{e.tag}</div>
             <div className="je-title">{e.title}</div>
             <div className="je-excerpt">{e.excerpt}</div>
             <span className="je-read">read →</span>
