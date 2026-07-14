@@ -382,14 +382,14 @@ nav.nav-scrolled {
 
 .ai-chat-panel {
   position: fixed; bottom: 100px; right: 16px; z-index: 1000;
-  width: min(360px, calc(100vw - 32px));
+  width: min(440px, calc(100vw - 32px));
   background: rgba(13,11,20,0.96);
   backdrop-filter: blur(24px);
   border: 1px solid rgba(196,168,130,0.2);
   border-radius: 16px;
   box-shadow: 0 24px 60px rgba(0,0,0,0.7), 0 0 40px rgba(196,168,130,0.08);
   display: none; flex-direction: column;
-  max-height: 500px; overflow: hidden;
+  max-height: 620px; overflow: hidden;
 }
 .ai-chat-panel.open { display: flex; }
 .ai-chat-header {
