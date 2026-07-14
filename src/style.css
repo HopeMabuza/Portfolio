@@ -281,6 +281,30 @@ nav.nav-scrolled {
   letter-spacing: 0.06em; margin-top: 8px;
 }
 
+/* ── ACTIVITIES ── */
+.activities-section {
+  position: relative; z-index: 10;
+  padding: 80px 0 60px;
+  border-top: 1px solid rgba(242,238,232,0.06);
+}
+.activity-card {
+  min-width: 380px; max-width: 380px;
+  background: rgba(242,238,232,0.02);
+  border: 1px solid rgba(242,238,232,0.06);
+  padding: 36px 32px; display: flex; flex-direction: column; gap: 12px;
+  transition: border-color 0.3s;
+  flex-shrink: 0;
+}
+.activity-card:hover { border-color: rgba(196,168,130,0.15); }
+.activity-type {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; letter-spacing: 0.12em;
+  color: rgba(196,168,130,0.55); text-transform: uppercase;
+}
+.activity-org {
+  font-size: 13px; color: rgba(242,238,232,0.35);
+}
+
 /* ── STACK ── */
 .stack-section {
   position: relative; z-index: 10;
@@ -554,6 +578,47 @@ nav.nav-scrolled {
 .journal-gitbook-cta svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 1.2; stroke-linecap: round; stroke-linejoin: round; transition: transform 0.2s; }
 .journal-gitbook-cta:hover svg { transform: translateX(3px); }
 
+/* ── CONTACT ── */
+.contact {
+  position: relative; z-index: 10;
+  padding: 100px 56px 120px;
+  text-align: center;
+  background: rgba(13,11,20,0.6);
+}
+.contact-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: rgba(242,238,232,0.35); margin-bottom: 28px;
+}
+.contact-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(36px, 6vw, 72px);
+  font-weight: 400; color: #F2EEE8;
+  line-height: 1.1; margin: 0 0 52px;
+}
+.contact-heading em { font-style: italic; color: #C4A882; }
+.contact-links {
+  display: flex; align-items: center; justify-content: center;
+  gap: 12px; flex-wrap: wrap;
+}
+.contact-email {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px; letter-spacing: 0.04em;
+  color: #0D0B14; background: #C4A882;
+  padding: 18px 32px; text-decoration: none;
+  transition: background 0.2s;
+}
+.contact-email:hover { background: #D4BCA0; }
+.contact-btn {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px; letter-spacing: 0.04em;
+  color: #F2EEE8; border: 1px solid rgba(242,238,232,0.15);
+  padding: 18px 32px; text-decoration: none;
+  transition: border-color 0.2s, color 0.2s;
+}
+.contact-btn:hover { border-color: #C4A882; color: #C4A882; }
+.contact-arrow { font-style: normal; }
+
 /* ── FOOTER ── */
 footer {
   position: relative; z-index: 10;
@@ -604,10 +669,16 @@ footer {
   .stack-row-index { display: none; }
   .stack-row-label { width: 100%; font-size: 17px; margin-bottom: 4px; }
 
+  .activities-section { padding: 60px 0 40px; }
+
   .journal { padding: 60px 24px 80px; }
   .journal-header { flex-direction: column; gap: 20px; }
   .journal-subtitle { text-align: left; max-width: 100%; }
   .journal-grid { grid-template-columns: 1fr; }
+
+  .contact { padding: 60px 24px 80px; }
+  .contact-links { flex-direction: column; align-items: stretch; }
+  .contact-email, .contact-btn { text-align: center; }
 
   footer { padding: 32px 24px; flex-direction: column; gap: 20px; text-align: center; }
   .footer-icons { justify-content: center; }

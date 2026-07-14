@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 const links = [
   { label: 'work', href: '#projects' },
   { label: 'stack', href: '#stack' },
+  { label: 'activities', href: '#activities' },
   { label: 'journal', href: '#journal' },
   { label: 'github', href: 'https://github.com/HopeMabuza', external: true },
   { label: 'contact', href: 'mailto:hopemabuzadev@gmail.com', external: true },

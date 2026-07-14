@@ -1,15 +1,15 @@
 const groups = [
   {
     label: 'Blockchain',
-    items: ['Solidity', 'Ethers.js', 'Chainlink VRF', 'ERC-20', 'ERC-721', 'ERC-1155', 'Smart Accounts', 'DeFi Protocols', 'Smart Contract Security'],
+    items: ['Solidity', 'Ethers.js', 'Chainlink VRF', 'ERC-20', 'ERC-721', 'ERC-1155', 'Smart Accounts', 'DeFi Protocols', 'Smart Contract Security', 'WalletConnect', 'IPFS', 'Upgradeable Contracts'],
   },
   {
     label: 'Frameworks',
-    items: ['Hardhat', 'React', 'Express.js', 'Node.js', 'NestJS'],
+    items: ['Hardhat', 'React', 'Express.js', 'Node.js', 'NestJS', 'TypeScript'],
   },
   {
     label: 'Web',
-    items: ['JavaScript', 'HTML / CSS', 'Web3 Wallet Integration', 'REST APIs', 'ABI Integration', 'SQL'],
+    items: ['JavaScript', 'HTML / CSS', 'Web3 Wallet Integration', 'REST APIs', 'ABI Integration', 'SQL', 'MongoDB', 'Supabase', 'SaaS'],
   },
   {
     label: 'Chains',
@@ -18,6 +18,10 @@ const groups = [
   {
     label: 'Tools',
     items: ['Git / GitHub', 'VS Code', 'CLI', 'GitLab'],
+  },
+  {
+    label: 'AI Tools',
+    items: ['Google Gemini API'],
   },
 ];
 

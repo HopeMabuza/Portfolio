@@ -14,19 +14,19 @@ const projects = [
     title: 'SecureNFT',
     desc: 'NFT-gated dApp on Sepolia. ERC1155 soulbound Rose NFTs act as access keys, only holders can enter and mint. Access enforced server-side via Express to prevent frontend bypass.',
     stack: ['Solidity', 'Hardhat', 'ERC-1155', 'Node.js', 'Express', 'React', 'Ethers.js', 'Sepolia'],
-    links: [{ label: 'github ↗', href: 'https://github.com/HopeMabuza/SecureNFT' }],
+    links: [{ label: 'github ↗', href: 'https://github.com/HopeMabuza/SecureNFT' }, { label: 'live app ↗', href: 'https://galaxynft.netlify.app' }],
     meta: 'Sepolia · 2026',
   },
   {
     num: '003',
     title: 'GalaxyStake',
     desc: 'NFT staking protocol where holders lock their ERC-721 tokens to earn on-chain rewards. Features staking mechanics, reward distribution logic, and a live frontend.',
-    stack: ['Solidity', 'Hardhat', 'Ethereum', 'React', 'ERC-721'],
+    stack: ['Solidity', 'Hardhat', 'Sepolia', 'React', 'ERC-721'],
     links: [
       { label: 'github ↗', href: 'https://github.com/HopeMabuza/NFT_Staking' },
       { label: 'live app ↗', href: 'https://galaxystake.netlify.app' },
     ],
-    meta: 'Netlify · 2026',
+    meta: 'Sepolia · Netlify · 2026',
   },
 ];
 
@@ -88,22 +88,30 @@ export default function Projects() {
             ref={trackRef}
             className={`carousel-track${isManual ? ' manual' : ''}`}
           >
-            {loopedProjects.map((p, i) => (
-              <div className="project-card" key={i}>
-                <div className="pc-num">{p.num}</div>
-                <div className="pc-title">{p.title}</div>
-                <div className="pc-desc">{p.desc}</div>
-                <div className="pc-stack">
-                  {p.stack.map((t) => <span className="stack-tag" key={t}>{t}</span>)}
+            {loopedProjects.map((p, i) => {
+              const primaryHref = (p.links.find(l => l.label.startsWith('live')) || p.links[0]).href;
+              return (
+                <div
+                  className="project-card"
+                  key={i}
+                  style={{ cursor: 'pointer' }}
+                  onClick={() => window.open(primaryHref, '_blank', 'noopener,noreferrer')}
+                >
+                  <div className="pc-num">{p.num}</div>
+                  <div className="pc-title">{p.title}</div>
+                  <div className="pc-desc">{p.desc}</div>
+                  <div className="pc-stack">
+                    {p.stack.map((t) => <span className="stack-tag" key={t}>{t}</span>)}
+                  </div>
+                  <div className="pc-links">
+                    {p.links.map((l) => (
+                      <a key={l.label} href={l.href} className="pc-link" target="_blank" rel="noopener" onClick={e => e.stopPropagation()}>{l.label}</a>
+                    ))}
+                  </div>
+                  <div className="pc-meta">{p.meta}</div>
                 </div>
-                <div className="pc-links">
-                  {p.links.map((l) => (
-                    <a key={l.label} href={l.href} className="pc-link" target="_blank" rel="noopener">{l.label}</a>
-                  ))}
-                </div>
-                <div className="pc-meta">{p.meta}</div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>
