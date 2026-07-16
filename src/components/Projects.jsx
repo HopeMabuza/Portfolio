@@ -1,13 +1,12 @@
 import { useState, useRef, useEffect } from 'react';
-import growFiImg from '/GrowFi.png';
-import secureNFTImg from '/SecureNFT.png';
-import galaxyStakeImg from '/GalaxyStake.png';
+
+const base = import.meta.env.BASE_URL;
 
 const projects = [
   {
     num: '001',
     title: 'GrowFi',
-    screenshot: growFiImg,
+    screenshot: `${base}GrowFi.png`,
     desc: 'Stablecoin yield generation protocol deployed on Base Mainnet and Sepolia. Handles yield logic, deposit mechanics, and reward distribution with a Node.js/Express backend and React frontend.',
     stack: ['Solidity', 'Hardhat', 'Node.js', 'Express', 'Smart Accounts', 'Base Mainnet', 'Sepolia'],
     links: [{ label: 'live app ↗', href: 'https://growfi-sigma.vercel.app/' }],
@@ -16,7 +15,7 @@ const projects = [
   {
     num: '002',
     title: 'SecureNFT',
-    screenshot: secureNFTImg,
+    screenshot: `${base}SecureNFT.png`,
     desc: 'NFT-gated dApp on Sepolia. ERC1155 soulbound Rose NFTs act as access keys, only holders can enter and mint. Access enforced server-side via Express to prevent frontend bypass.',
     stack: ['Solidity', 'Hardhat', 'ERC-1155', 'Node.js', 'Express', 'React', 'Ethers.js', 'Sepolia'],
     links: [{ label: 'github ↗', href: 'https://github.com/HopeMabuza/SecureNFT' }, { label: 'live app ↗', href: 'https://galaxynft.netlify.app' }],
@@ -25,7 +24,7 @@ const projects = [
   {
     num: '003',
     title: 'GalaxyStake',
-    screenshot: galaxyStakeImg,
+    screenshot: `${base}GalaxyStake.png`,
     desc: 'NFT staking protocol where holders lock their ERC-721 tokens to earn on-chain rewards. Features staking mechanics, reward distribution logic, and a live frontend.',
     stack: ['Solidity', 'Hardhat', 'Sepolia', 'React', 'ERC-721'],
     links: [
