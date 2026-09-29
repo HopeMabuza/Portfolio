@@ -1,66 +1,20 @@
-import { useState, useEffect } from 'react';
-
-const links = [
-  { label: 'work', href: '#projects' },
-  { label: 'skills', href: '#stack' },
-  { label: 'experience', href: '#activities' },
-  { label: 'journal', href: '#journal' },
-  { label: 'github', href: 'https://github.com/HopeMabuza', external: true },
-  { label: 'contact', href: '#contact' },
+const items = [
+  { label: 'Work', href: '#work' },
+  { label: 'Skills', href: '#skills' },
+  { label: 'Experience', href: '#experience' },
+  { label: 'Journal', href: '#journal' },
 ];
 
 export default function Nav() {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
-    window.addEventListener('scroll', onScroll);
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
-
-  function handleLinkClick() {
-    setMenuOpen(false);
-  }
-
   return (
-    <>
-      <nav className={scrolled ? 'nav-scrolled' : ''}>
-        <span className="nav-name">Hope <span>Mabuza</span></span>
-
-        <div className="nav-links">
-          {links.map((l) => (
-            <a
-              key={l.label}
-              href={l.href}
-              target={l.external ? '_blank' : undefined}
-              rel={l.external ? 'noopener' : undefined}
-            >
-              {l.label}
-            </a>
-          ))}
-        </div>
-
-        <button className="nav-burger" onClick={() => setMenuOpen((o) => !o)} aria-label="Menu">
-          <span className={menuOpen ? 'open' : ''} />
-          <span className={menuOpen ? 'open' : ''} />
-          <span className={menuOpen ? 'open' : ''} />
-        </button>
-      </nav>
-
-      <div className={`mobile-menu${menuOpen ? ' open' : ''}`}>
-        {links.map((l) => (
-          <a
-            key={l.label}
-            href={l.href}
-            target={l.external ? '_blank' : undefined}
-            rel={l.external ? 'noopener' : undefined}
-            onClick={handleLinkClick}
-          >
-            {l.label}
-          </a>
+    <header className="site-header">
+      <a href="#top" className="brand">Hope Mabuza</a>
+      <nav className="nav-pills" aria-label="Main">
+        {items.map((i) => (
+          <a key={i.href} href={i.href} className="nav-pill">{i.label}</a>
         ))}
-      </div>
-    </>
+        <a href="#contact" className="nav-pill nav-pill-cta">Contact</a>
+      </nav>
+    </header>
   );
 }

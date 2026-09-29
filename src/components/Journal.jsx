@@ -1,3 +1,8 @@
+import { links } from '../content';
+import Section from './Section';
+
+// Journal entries are unchanged from the old site.
+
 const entries = [
   {
     date: 'Week 1',
@@ -23,44 +28,26 @@ const entries = [
 
 export default function Journal() {
   return (
-    <section className="journal" id="journal">
-      <div className="journal-header">
-        <div>
-          <div className="journal-eyebrow">Learning in Public</div>
-          <h2 className="journal-title">The <em>Journal</em></h2>
-        </div>
-        <div className="journal-subtitle">
-          "I document everything , the breakthroughs, the dead ends, the moments it finally clicks."
-        </div>
-      </div>
+    <Section id="journal" title="Journal" sub="Learning in public.">
       <div className="journal-grid">
         {entries.map((e) => (
           <a
             key={e.title}
-            className={`journal-entry${e.featured ? ' featured' : ''}`}
-            href={e.href || 'https://blockchain-journal-hope-mabuza.gitbook.io/blockchain-journal-hope-mabuza-docs/'}
+            className="journal-card"
+            href={e.href || links.journal}
             target="_blank"
             rel="noopener"
-            style={{ textDecoration: 'none' }}
           >
-<div className="je-tag">{e.tag}</div>
-            <div className="je-title">{e.title}</div>
-            <div className="je-excerpt">{e.excerpt}</div>
-            <span className="je-read">read →</span>
+            <p className="journal-tag">{e.tag}</p>
+            <h3 className="journal-title">{e.title}</h3>
+            <p className="journal-excerpt">{e.excerpt}</p>
+            <span className="journal-read">Read entry</span>
           </a>
         ))}
       </div>
-      <a
-        href="https://blockchain-journal-hope-mabuza.gitbook.io/blockchain-journal-hope-mabuza-docs/"
-        target="_blank"
-        rel="noopener"
-        className="journal-gitbook-cta"
-      >
-        <span>read the full journal on GitBook</span>
-        <svg viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg">
-          <path d="M1 7H13M13 7L7 1M13 7L7 13" />
-        </svg>
+      <a className="journal-all" href={links.journal} target="_blank" rel="noopener">
+        Read the full journal on GitBook
       </a>
-    </section>
+    </Section>
   );
 }
