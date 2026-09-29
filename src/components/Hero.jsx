@@ -1,12 +1,12 @@
 export default function Hero() {
   return (
     <section className="hero">
-      <div className="hero-eyebrow">Full Stack Blockchain Developer</div>
+      <div className="hero-eyebrow">Backend &amp; Smart Contract Developer</div>
       <h1 className="hero-name">
         Building<br />on-chain,<br /><em>for humans.</em>
       </h1>
       <p className="hero-statement">
-        Most of Web3 was built for people who already understand it. I build for the ones who don't yet.
+        I build secure, upgradeable smart contracts and the backend APIs behind them. I've shipped five production systems as a freelancer, including two platforms live on BNB Chain mainnet.
       </p>
       <div className="hero-cta">
         <a href="#projects" className="btn-main">see my work</a>

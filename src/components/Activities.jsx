@@ -3,43 +3,67 @@ import { useState, useRef, useEffect } from 'react';
 const activities = [
   {
     num: '001',
-    type: 'Role',
-    title: 'Blockchain Developer',
-    org: 'Africa\'s Blockchain Club',
-    period: 'Jan 2026 — Present',
-    desc: 'Writing and deploying smart contracts across DeFi, NFT, and token protocols. Full-cycle development from design to live mainnet deployment, with code review and Agile team practices.',
+    type: 'Freelance',
+    title: 'Freelance Full-Stack Developer',
+    org: "Africa's Blockchain Club",
+    period: 'Mar 2026 – Present',
+    desc: 'Backend and smart contract work for clients across DeFi, Web3 payments and web platforms. Five production systems shipped, including two live on BNB Chain mainnet.',
   },
   {
     num: '002',
-    type: 'Hackathon',
-    title: 'Stru',
-    org: 'Dev3Pack Hackathon',
-    period: 'May 2026',
-    desc: 'Solana accountability protocol where friends stake SOL, commit to goals, submit proof, and AI verifies outcomes. Anchor/Rust on-chain program with Phantom wallet integration.',
+    type: 'Training',
+    title: 'Blockchain Developer Cohort Member',
+    org: "Africa's Blockchain Club",
+    period: 'Jan 2026 – Mar 2026',
+    desc: 'Full-stack blockchain training: Solidity, Hardhat testing and backend integration. Moved into paid freelance work within two months.',
   },
   {
     num: '003',
-    type: 'Hackathon',
-    title: 'Ubuntu Health Vault',
-    org: 'W3Node Hackathon',
-    period: 'Jan 2026',
-    desc: 'Patient-owned medical records platform. ERC-4337 smart account login, SMS/USSD flows for feature phone users, and encrypted IPFS storage.',
+    type: 'Community',
+    title: 'Team1 Collaborator',
+    org: 'Avalanche Team1',
+    period: 'Aug 2026 – Present',
+    desc: 'Help host community events and deliver workshops to grow the Avalanche developer community.',
   },
   {
     num: '004',
-    type: 'Volunteer',
+    type: 'Teaching',
     title: 'Blockchain Training Facilitator',
     org: 'University of Johannesburg',
     period: '2026',
-    desc: 'Facilitated Solidity and smart contract sessions for the SA-Swiss Bilateral Research Chair in Blockchain Technology. Covered Ethereum, decentralised applications, and real-world use cases.',
+    desc: 'Delivered a guest lecture and Solidity sessions for the SA-Swiss Bilateral Research Chair in Blockchain Technology, covering Ethereum, dApps and real-world use cases with hands-on coding.',
   },
   {
     num: '005',
     type: 'Volunteer',
     title: 'Work Readiness Facilitator',
     org: 'WeThinkCode_',
-    period: 'Sep 2025 — May 2026',
-    desc: 'Coached fellow students on interview prep, mock interviews, and workplace soft skills including communication, professionalism, and team collaboration.',
+    period: 'Sep 2025 – May 2026',
+    desc: 'Coached fellow students through mock interviews and ran sessions on communication, professionalism and teamwork.',
+  },
+  {
+    num: '006',
+    type: 'Education',
+    title: 'Software Development Programme',
+    org: 'WeThinkCode_, Johannesburg',
+    period: '2025 – 2026',
+    desc: 'Completed the 16-month project-based programme (Letter of Completion, July 2026). Python, Java, OOP, TDD, web development and blockchain.',
+  },
+  {
+    num: '007',
+    type: 'Hackathon',
+    title: 'Ubuntu Health Vault',
+    org: 'W3Node Hackathon',
+    period: 'Jan 2026',
+    desc: 'Prototype of a patient-owned medical records platform for South African patients, including consent by SMS/USSD for people with feature phones. Designed with POPIA in mind.',
+  },
+  {
+    num: '008',
+    type: 'Hackathon',
+    title: 'Stru',
+    org: 'Dev3Pack Hackathon',
+    period: 'May 2026',
+    desc: 'Prototype of a goal-accountability app where friends stake into a shared pool and AI checks proof that each goal was completed.',
   },
 ];
 
@@ -87,7 +111,7 @@ export default function Activities() {
 
   return (
     <section className="activities-section" id="activities">
-      <div className="section-label">Activities</div>
+      <div className="section-label">Experience &amp; community</div>
       <div className="carousel-wrapper">
         <div className="carousel-fade-left" />
         <div className="carousel-fade-right" />

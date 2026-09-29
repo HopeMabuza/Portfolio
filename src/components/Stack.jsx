@@ -1,27 +1,35 @@
 const groups = [
   {
-    label: 'Blockchain',
-    items: ['Solidity', 'Ethers.js', 'Chainlink VRF', 'ERC-20', 'ERC-721', 'ERC-1155', 'Smart Accounts', 'DeFi Protocols', 'Smart Contract Security', 'WalletConnect', 'IPFS', 'Upgradeable Contracts'],
+    label: 'Smart contracts',
+    items: ['Solidity', 'Hardhat', 'OpenZeppelin', 'UUPS upgradeable contracts', 'ERC-20', 'ERC-721', 'ERC-1155', 'ERC-4337', 'Reentrancy protection', 'Access control', 'The Graph', 'IPFS (Pinata)'],
   },
   {
-    label: 'Frameworks',
-    items: ['Hardhat', 'React', 'Express.js', 'Node.js', 'NestJS', 'TypeScript'],
+    label: 'Backend',
+    items: ['Node.js', 'Express.js', 'NestJS', 'REST APIs', 'MongoDB', 'Mongoose', 'Prisma', 'JWT / Passport', 'Role-based access control', 'Sign-In with Ethereum', 'Magic-link login'],
   },
   {
-    label: 'Web',
-    items: ['JavaScript', 'HTML / CSS', 'Web3 Wallet Integration', 'REST APIs', 'ABI Integration', 'SQL', 'MongoDB', 'Supabase', 'SaaS'],
+    label: 'Web3 integration',
+    items: ['ethers.js', 'viem', 'wagmi', 'Reown AppKit'],
   },
   {
-    label: 'Chains',
-    items: ['Ethereum', 'Base Mainnet', 'BNB Smart Chain', 'Sepolia'],
+    label: 'Testing & docs',
+    items: ['Hardhat / Chai', 'Jest', 'TDD', 'OpenAPI 3.0', 'Swagger', 'Mintlify'],
+  },
+  {
+    label: 'Languages',
+    items: ['TypeScript', 'JavaScript', 'Solidity', 'Python', 'Java'],
+  },
+  {
+    label: 'Networks',
+    items: ['BNB Chain', 'Base', 'Ethereum Sepolia'],
   },
   {
     label: 'Tools',
-    items: ['Git / GitHub', 'VS Code', 'CLI', 'GitLab'],
+    items: ['Git', 'GitHub', 'GitLab', 'Agile / Scrum'],
   },
   {
-    label: 'AI Tools',
-    items: ['Google Gemini API'],
+    label: 'Frontend (working knowledge)',
+    items: ['React', 'Next.js', 'Vite'],
   },
 ];
 
@@ -29,8 +37,8 @@ export default function Stack() {
   return (
     <section className="stack-section" id="stack">
       <div className="stack-header">
-        <div className="stack-eyebrow">Tech Stack</div>
-        <p className="stack-sub">The tools I reach for every day.</p>
+        <div className="stack-eyebrow">Skills</div>
+        <p className="stack-sub">What I've used in real projects.</p>
       </div>
       <div className="stack-rows">
         {groups.map((g, i) => (

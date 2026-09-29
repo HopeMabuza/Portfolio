@@ -1,10 +1,13 @@
 export default function Contact() {
   return (
     <section className="contact" id="contact">
-      <div className="contact-eyebrow">Get in Touch</div>
+      <div className="contact-eyebrow">Get in touch</div>
       <h2 className="contact-heading">
-        Building something <em>on-chain?</em>
+        Looking for a backend or <em>smart contract developer?</em>
       </h2>
+      <p className="contact-sub">
+        Open to backend, smart contract and blockchain developer roles. Remote, hybrid or in-person in Johannesburg, and open to relocation.
+      </p>
       <div className="contact-links">
         <a href="mailto:hopemabuzadev@gmail.com" className="contact-email">
           hopemabuzadev@gmail.com

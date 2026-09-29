@@ -1,141 +1,102 @@
-import { useState, useRef, useEffect } from 'react';
 import growFiImg from '../../images/GrowFi.png';
-import secureNFTImg from '../../images/SecureNFT.png';
-import galaxyStakeImg from '../../images/GalaxyStake.png';
 
 const projects = [
   {
-    num: '001',
     title: 'GrowFi',
+    tagline: 'Stablecoin yield protocol, live on Base Mainnet',
+    meta: 'WeThinkCode_ capstone · Team project · 2026',
     screenshot: growFiImg,
-    desc: 'Stablecoin yield generation protocol deployed on Base Mainnet and Sepolia. Handles yield logic, deposit mechanics, and reward distribution with a Node.js/Express backend and React frontend.',
-    stack: ['Solidity', 'Hardhat', 'Node.js', 'Express', 'Smart Accounts', 'Base Mainnet', 'Sepolia'],
-    links: [{ label: 'live app ↗', href: 'https://growfi-sigma.vercel.app/' }],
-    meta: 'Base Mainnet · 2026 · Team Project',
-  },
-  {
-    num: '002',
-    title: 'SecureNFT',
-    screenshot: secureNFTImg,
-    desc: 'NFT-gated dApp on Sepolia. ERC1155 soulbound Rose NFTs act as access keys, only holders can enter and mint. Access enforced server-side via Express to prevent frontend bypass.',
-    stack: ['Solidity', 'Hardhat', 'ERC-1155', 'Node.js', 'Express', 'React', 'Ethers.js', 'Sepolia'],
-    links: [{ label: 'github ↗', href: 'https://github.com/HopeMabuza/SecureNFT' }, { label: 'live app ↗', href: 'https://galaxynft.netlify.app' }],
-    meta: 'Sepolia · 2026',
-  },
-  {
-    num: '003',
-    title: 'GalaxyStake',
-    screenshot: galaxyStakeImg,
-    desc: 'NFT staking protocol where holders lock their ERC-721 tokens to earn on-chain rewards. Features staking mechanics, reward distribution logic, and a live frontend.',
-    stack: ['Solidity', 'Hardhat', 'Sepolia', 'React', 'ERC-721'],
-    links: [
-      { label: 'github ↗', href: 'https://github.com/HopeMabuza/NFT_Staking' },
-      { label: 'live app ↗', href: 'https://galaxystake.netlify.app' },
+    summary:
+      'GrowFi lets users deposit USDC into a vault that earns yield through Aave and compounds it automatically.',
+    role:
+      'Backend and smart contract developer. I worked across the backend and smart contract components alongside my teammates. The React frontend was built by the team.',
+    builtLabel: 'What I worked on',
+    built: [
+      'Auto-compounding USDC yield vault contracts integrated with Aave',
+      'On-chain deposit and yield-distribution logic',
+      'ERC-4337 smart wallet integration, so users interact through smart accounts',
+      'A Node.js/Express API that connects the app to the contracts using ethers.js',
     ],
-    meta: 'Sepolia · Netlify · 2026',
+    extra: null,
+    tested:
+      'A Hardhat test suite for the smart contracts. Deployed on Sepolia testnet as well as Base Mainnet.',
+    stack: ['Solidity', 'Hardhat', 'Node.js', 'Express', 'ethers.js', 'ERC-4337', 'Aave', 'Base Mainnet'],
+  },
+  {
+    title: 'Training Programme Portal',
+    tagline: 'Wallet sign-in and API for a blockchain developer training programme, live in production',
+    meta: 'Freelance client project · Team project · 2026',
+    screenshot: null,
+    summary:
+      'A portal for the developers in a blockchain training programme. Developers register and admins manage the programme. Users sign in with their crypto wallet instead of an email and password.',
+    role:
+      'Backend engineer and technical documentation lead. The team built most of the frontend pages and admin UI, the Docker setup, the core data models, the first versions of the routes and the monorepo setup.',
+    builtLabel: 'What I built',
+    built: [
+      'Sign-In with Ethereum (SIWE) to replace email/password login: nonce generation, message signing and JWT issuance, with nonces that expire automatically (MongoDB TTL index) to prevent replay attacks',
+      'Role-based access control middleware applied across all routes for four user roles',
+      'A standard API error format with global error handling, so every error response looks the same',
+      'Registration and admin-approval workflows: wallet address validation, duplicate detection across email, handle and wallet, and clear field-level errors',
+      'Wallet sign-in on the frontend using wagmi (Sepolia)',
+    ],
+    extra: {
+      label: 'Documentation',
+      items: [
+        'Wrote and maintained the full OpenAPI 3.0 specification, with an export script',
+        'Built the complete Mintlify API reference site: navigation, intro, quickstart and about 30 endpoint pages',
+      ],
+    },
+    tested:
+      "A SIWE test script covering the sign-in flow, including rejecting wallets that aren't registered.",
+    stack: ['Express.js', 'TypeScript', 'MongoDB', 'Mongoose', 'JWT', 'SIWE', 'wagmi', 'OpenAPI 3.0', 'Mintlify'],
+    note: 'Client work is confidential, so no code or links are shared.',
   },
 ];
 
-// Duplicate for infinite scroll loop
-const loopedProjects = [...projects, ...projects];
-
 export default function Projects() {
-  const [current, setCurrent] = useState(0);
-  const [isManual, setIsManual] = useState(false);
-  const trackRef = useRef(null);
-  const timerRef = useRef(null);
-  const touchStartX = useRef(null);
-  const TOTAL = projects.length;
-
-  function cardWidth() {
-    const card = trackRef.current?.querySelector('.project-card');
-    return card ? card.offsetWidth + 24 : 444;
-  }
-
-  function goTo(index) {
-    const next = ((index % TOTAL) + TOTAL) % TOTAL;
-    setCurrent(next);
-    setIsManual(true);
-    if (trackRef.current) {
-      trackRef.current.style.transform = `translateX(-${next * cardWidth()}px)`;
-    }
-    clearTimeout(timerRef.current);
-    timerRef.current = setTimeout(() => {
-      setIsManual(false);
-      if (trackRef.current) trackRef.current.style.transform = '';
-    }, 5000);
-  }
-
-  function handleTouchStart(e) {
-    touchStartX.current = e.touches[0].clientX;
-  }
-
-  function handleTouchEnd(e) {
-    if (touchStartX.current === null) return;
-    const diff = touchStartX.current - e.changedTouches[0].clientX;
-    if (Math.abs(diff) > 40) goTo(diff > 0 ? current + 1 : current - 1);
-    touchStartX.current = null;
-  }
-
-  useEffect(() => () => clearTimeout(timerRef.current), []);
-
   return (
     <section className="projects" id="projects">
-      <div className="section-label">Selected Work</div>
-      <div className="carousel-wrapper">
-        <div className="carousel-fade-left" />
-        <div className="carousel-fade-right" />
-        <div
-          className="carousel-track-outer"
-          onTouchStart={handleTouchStart}
-          onTouchEnd={handleTouchEnd}
-        >
-          <div
-            ref={trackRef}
-            className={`carousel-track${isManual ? ' manual' : ''}`}
-          >
-            {loopedProjects.map((p, i) => {
-              const primaryHref = (p.links.find(l => l.label.startsWith('live')) || p.links[0]).href;
-              return (
-                <div
-                  className="project-card"
-                  key={i}
-                  style={{ cursor: 'pointer' }}
-                  onClick={() => window.open(primaryHref, '_blank', 'noopener,noreferrer')}
-                >
-                  <div className="pc-screenshot">
-                    <img src={p.screenshot} alt={`${p.title} screenshot`} />
-                  </div>
-                  <div className="pc-num">{p.num}</div>
-                  <div className="pc-title">{p.title}</div>
-                  <div className="pc-desc">{p.desc}</div>
-                  <div className="pc-stack">
-                    {p.stack.map((t) => <span className="stack-tag" key={t}>{t}</span>)}
-                  </div>
-                  <div className="pc-links">
-                    {p.links.map((l) => (
-                      <a key={l.label} href={l.href} className="pc-link" target="_blank" rel="noopener" onClick={e => e.stopPropagation()}>{l.label}</a>
-                    ))}
-                  </div>
-                  <div className="pc-meta">{p.meta}</div>
+      <div className="section-label">Selected work</div>
+      <div className="case-list">
+        {projects.map((p) => (
+          <article className="case" key={p.title}>
+            {p.screenshot && (
+              <div className="case-shot">
+                <img src={p.screenshot} alt={`${p.title} screenshot`} />
+              </div>
+            )}
+            <div className="case-grid">
+              <div className="case-intro">
+                <h3 className="case-title">{p.title}</h3>
+                <p className="case-tagline">{p.tagline}</p>
+                <p className="case-meta">{p.meta}</p>
+                <p className="case-summary">{p.summary}</p>
+                <h4 className="case-h">My role</h4>
+                <p className="case-text">{p.role}</p>
+              </div>
+              <div className="case-detail">
+                <h4 className="case-h">{p.builtLabel}</h4>
+                <ul className="case-ul">
+                  {p.built.map((b) => <li key={b}>{b}</li>)}
+                </ul>
+                {p.extra && (
+                  <>
+                    <h4 className="case-h">{p.extra.label}</h4>
+                    <ul className="case-ul">
+                      {p.extra.items.map((b) => <li key={b}>{b}</li>)}
+                    </ul>
+                  </>
+                )}
+                <h4 className="case-h">How it was tested</h4>
+                <p className="case-text">{p.tested}</p>
+                <div className="pc-stack">
+                  {p.stack.map((t) => <span className="stack-tag" key={t}>{t}</span>)}
                 </div>
-              );
-            })}
-          </div>
-        </div>
-      </div>
-      <div className="carousel-controls">
-        <button className="carousel-arrow" onClick={() => goTo(current - 1)}>←</button>
-        <div className="carousel-dots">
-          {projects.map((_, i) => (
-            <button
-              key={i}
-              className={`carousel-dot${i === current ? ' active' : ''}`}
-              onClick={() => goTo(i)}
-            />
-          ))}
-        </div>
-        <button className="carousel-arrow" onClick={() => goTo(current + 1)}>→</button>
+                {p.note && <p className="case-note">{p.note}</p>}
+              </div>
+            </div>
+          </article>
+        ))}
       </div>
     </section>
   );
